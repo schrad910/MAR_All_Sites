@@ -1,8 +1,8 @@
 ---
 title: "Manuscript"
 author: "Nicole Schrad"
-date: "9/30/2020"
 output: word_document
+
 ---
 
 ```{r setup, include=FALSE}
@@ -11,7 +11,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction
 
-Microbial metabolism drives the geochemistry, and therefore the water quality, of aquifers1. The fate of many pollutants is determined by the pH, oxygen concentration, organic carbon availability, and the mineralogy of the soil and infiltrating water through the unsaturated zone2. 
-  One such method is MAR.  Managed aquifer recharge (MAR) is a set of tools and techniques that purposefully replenishes aquifers for environmental benefit or later recovery3. There are many forms and water sources for MAR, including diverted slope runoff4, treated stormwater5, or river water6. The design
+Microbial metabolism drives the geochemistry, and therefore the water quality, of aquifers. The fate of many pollutants is determined by the pH, oxygen concentration, organic carbon availability, and the mineralogy of the soil and infiltrating water through the unsaturated zone. 
 
+One such method is MAR.  Managed aquifer recharge (MAR) is a set of tools and techniques that purposefully replenishes aquifers for environmental benefit or later recovery. There are many forms and water sources for MAR, including diverted slope runoff, treated stormwater, or river water. 
+  
 The objectives of this study were to (1) understand the impact of stormwater infiltration on the soil microbial community and its biogeochemical functioning and (2) document common changes to the community introduced by the addition of a carbon rich PRB. We hypothesize that that 

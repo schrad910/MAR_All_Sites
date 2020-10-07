@@ -2,16 +2,17 @@
 library(qiime2R)
 library(tidyverse)
 library(phyloseq)
+library(here)
 
 #renaming columns with problematic names
-metadata<-read_tsv("metadata.txt", col_type = cols(Treated= col_logical()))%>%
+metadata<-read_tsv("Environment/metadata.txt", col_type = cols(Treated= col_logical()))%>%
     rename("depth_below_plot_cm"="Depth below plot base (cm)", 
          "depth_below_ground_cm"="Depth below ground surface (cm)") %>%
     column_to_rownames(.,var="SampleID")%>%
     sample_data()
 
 #make featureID a row and the samples w/ # of reads and phyloseq otu object
-table <- read_qza("table.qza")$data
+table <- read_qza("Qiime/table.qza")$data
 otu<-otu_table(table, taxa_are_rows = TRUE)
   
 #calculate relative abundance 
@@ -19,7 +20,7 @@ relabunKTYA <- as_tibble(table, rownames="featureID")%>%
   mutate_at(.,vars(-featureID), .funs = ~./sum(.)) 
 
 #pull in taxonomy table, filter out lower confidence variables (<.9) then only pull taxon and featureID
-taxonomy <- read_qza("taxonomy.qza")$data %>%
+taxonomy <- read_qza("Qiime/taxonomy.qza")$data %>%
   as_tibble() %>%
   select (-Confidence) %>%
   mutate(Taxon=str_replace_all(string=Taxon,pattern = "[dpcofg]__", replacement = ""))%>%
@@ -30,7 +31,7 @@ tax<- as.matrix(taxonomy)%>%
   tax_table()
 taxonomy<- rownames_to_column(taxonomy, var= "Feature.ID")
 #Download rootedtree
-rootedtree <- read_qza("rooted-tree.qza")$data%>%
+rootedtree <- read_qza("Qiime/rooted-tree.qza")$data%>%
   phy_tree()
 
 

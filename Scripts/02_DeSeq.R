@@ -20,7 +20,7 @@ alpha=0.01
 sigtab = res[which(res$padj< alpha),]
 sigtab = cbind(as(sigtab, "data.frame"), as(tax_table(phylo)[rownames(sigtab),],"matrix"))
 sigtab<- sigtab[order(sigtab$log2FoldChange),]
-posigtab = sigtab[sigtab[,"log2FoldChange"]>26,] 
+
 
 #joinablesigtab <- rownames_to_column(sigtab, var="featureid")
 

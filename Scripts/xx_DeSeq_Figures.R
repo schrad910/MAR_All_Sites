@@ -15,13 +15,13 @@ ggplot(sigtabgen, aes(x=log2FoldChange, y=Genus, color= Phylum)) +
 
 #look at just proteos
 proteo = subset(sigtabgen, Phylum == "Proteobacteria")
-x=tapply(proteo$log2FoldChange, proteo$Genus, function(x) max(x))%>%
+x=tapply(proteo$log2FoldChange, proteo$Species, function(x) max(x))%>%
   sort(., TRUE)
 proteo$Phylum = factor(as.character(proteo$Phylum), levels = names(x))
 
 
 
-ggplot(proteo, aes(x=log2FoldChange, y= Genus, color= Class)) +
+ggplot(proteo, aes(x=log2FoldChange, y= Species, color= Class)) +
   geom_vline(xintercept=0, color= "black", size=.5)+
   geom_point(size=4)+
   theme(axis.text.x = element_text(angle = -90, hjust = 0, vjust = .5))
