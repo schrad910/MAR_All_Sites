@@ -9,6 +9,15 @@ output: word_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r, include= FALSE, echo=FALSE}
+library(tidyverse)
+library(qiime2R)
+library(here)
+library(phyloseq)
+library(DESeq2)
+library(vegan)
+```
+
 ## Introduction
 
 Microbial metabolism drives the geochemistry, and therefore the water quality, of aquifers. The fate of many pollutants is determined by the pH, oxygen concentration, organic carbon availability, and the mineralogy of the soil and infiltrating water through the unsaturated zone. 
