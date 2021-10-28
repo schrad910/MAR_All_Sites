@@ -1,23 +1,29 @@
 library("tidyverse")
+library("ggplot2")
+library("ggpubr")
 #phylum order
 #sorts descendingy by log2fold change
-sort(.,TRUE)
-sigtabgen$Phylum = factor(as.character(sigtabgen$Phylum), levels = names(x))
-#genus order
-x= tapply(sigtabgen$log2FoldChange, sigtabgen$Genus, function(x) max(x))%>%
-  sort(.,TRUE)
-sigtabgen$Genus = factor(as.character(sigtabgen$Genus), levels = names(x))
 
-ggplot(sigtabgen, aes(x=log2FoldChange, y=Genus, color= Phylum)) +
+#genus order
+x= tapply(sigtabASV$log2FoldChange, sigtabASV$Species, function(x) max(x))%>%
+  sort(.,TRUE)
+sigtabASV$Species = factor(as.character(sigtabASV$Species), levels = names(x))
+
+theme_classic()
+ggplot(sigtabASV, aes(x=log2FoldChange, y= Species, color= Phylum)) +
   geom_vline(xintercept=0, color= "black", size=.5)+
-  geom_point(size=1)+
+  geom_point(size=4)+
   theme(axis.text.x = element_text(angle = -90, hjust = 0, vjust = .5))
 
+inner_join()
+ggplot(, aes(x = Species, y= rel_abun , fill= Treatment )) +
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90,  vjust= 0.2, hjust=.4))
+
 #look at just proteos
-proteo = subset(sigtabgen, Phylum == "Proteobacteria")
+proteo = subset(sigtabASV, Phylum == "Proteobacteria")
 x=tapply(proteo$log2FoldChange, proteo$Species, function(x) max(x))%>%
   sort(., TRUE)
-proteo$Phylum = factor(as.character(proteo$Phylum), levels = names(x))
 
 
 

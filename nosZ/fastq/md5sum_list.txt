@@ -1,0 +1,16 @@
+b371b92c48e7cfbbfcadc1b657cd7830  ./nosZ-7_R2_001.fastq.gz
+f065899f78d576606f9d6fee580ad91b  ./nosZ-1_R1_001.fastq.gz
+11ad720663af5f3bc6b19261217fb580  ./nosZ-3_R1_001.fastq.gz
+e1b8abbf580c1074917b1e23431442fd  ./nosZ-2_R1_001.fastq.gz
+528123d833721ebade87b7f2585ec170  ./nosZ-6_R2_001.fastq.gz
+a72c40168c9c1e5c58b791ddca87d257  ./nosZ-8_R2_001.fastq.gz
+86ec351dc2c1b70f053187bbad7349b3  ./nosZ-5_R1_001.fastq.gz
+584f14d6ace694eef075b693e5cb3640  ./nosZ-2_R2_001.fastq.gz
+b28346bd3003ed1580fc573611403ab0  ./nosZ-5_R2_001.fastq.gz
+45fed2c143e1214efebd550c929a041c  ./nosZ-3_R2_001.fastq.gz
+4c79ef56fc94acddf8c60c41019e8e42  ./nosZ-4_R1_001.fastq.gz
+db22e033dcbd5e35b6cdd0f5b861d4bc  ./nosZ-1_R2_001.fastq.gz
+14a911ddcf8d9c8f612a1cb7fddfc1ae  ./nosZ-4_R2_001.fastq.gz
+72f9072100fce31cf4651bb1d45ebe93  ./nosZ-8_R1_001.fastq.gz
+9bb8f754aae5c6cd47fddec283bd8134  ./nosZ-7_R1_001.fastq.gz
+dd2da84d5e383f447f973dd5a975a1fc  ./nosZ-6_R1_001.fastq.gz
