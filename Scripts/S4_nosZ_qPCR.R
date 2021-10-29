@@ -17,9 +17,10 @@ E_per_nosZ<- 57.4
 E_per_16S<- 48.4
 E_nosZ<- (E_per_nosZ/100)+1
 E_16S<-(E_per_16S/100)+1
-write_csv(qPCR, here("qPCR/qPCR_table.csv"))
+
 qPCR<-inner_join(nosZ,ref_16S, by="Well")
-saveRDS(qPCR,here("Objects/qPCR_30_raw.rds"))
+#write_csv(qPCR, here("qPCR/qPCR_table.csv"))
+#saveRDS(qPCR,here("Objects/qPCR_30_raw.rds"))
 #getting only one row per samples
 sliceqPCR<- dplyr::slice(qPCR,1,4,7,10,13,16,19,22)
 #normalizing to genomic DNA input, values from Qubit
@@ -50,7 +51,7 @@ ggplot(subset(pfaffl, Timing == "after"), aes(x=Treatment, y= avg_ratio, fill=Tr
   labs(x="", y= y)+
   scale_fill_manual(values = c(palette[4],palette[2]))
 
-ggsave(here("Figures/qPCR_30cm_pfaffl.png"))
+ggsave(here("Figures/S4_qPCR_30cm_pfaffl.pdf"))
 
 #changing nosZ Cq with no detection from zero to 40 (neg control) and adding informational columns about the samples
 updated_qPCR <-sliceqPCR%>%

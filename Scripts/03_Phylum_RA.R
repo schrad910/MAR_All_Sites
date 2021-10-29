@@ -105,7 +105,7 @@ bray
 ggarrange(RA, ggarrange(diversity, bray, labels=c("B","C"), ncol=2),  
         labels = c("A", "B"),
          ncol = 1, nrow = 2,heights =c(1.5,1))
-ggsave("Figures/makeup1.png")
+#have to manually save bc of lines
 
 
 

@@ -42,7 +42,7 @@ ggplot(data=out_df)+
   theme_pubr(legend="right")+
   labs(x= "Log 2-Fold Abundance Difference", y= "Genus")+
   theme(legend.text = element_text(face = "italic"), axis.text.y  = element_text(face = "italic"))
-ggsave(here("Figures/ancom_timing_genus.png"))  
+ggsave(here("Figures/04_ancom_timing_genus.pdf"))  
 #checking with glommed phylums
 
 #class_ns<- tax_glom(native_soil, taxrank = "Phylum", NArm = F)

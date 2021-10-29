@@ -50,7 +50,7 @@ ggplot()+
 
 
 
-  ggsave(here("Figures/N_rem.png"))
+  ggsave(here("Figures/S3_N_rem.pdf"))
 total<-rbind(mutate(native_soil, treatment= "Native soil"), mutate(woodchips, treatment="Woodchips"))
 
              

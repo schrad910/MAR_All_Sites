@@ -20,7 +20,7 @@
 	.st14{fill:none;stroke:#000000;stroke-width:1.07;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:1.42,4.27;}
 	.st15{fill:none;}
 	.st16{enable-background:new    ;}
-	.st17{fill:#DCD4CD;}
+	.st17{fill:#B0ABA6;}
 	.st18{font-family:'ArialMT';}
 	.st19{font-size:14.23px;}
 	.st20{letter-spacing:2;}
@@ -1435,8 +1435,6 @@
 		<text transform="matrix(6.123234e-17 -1 1 6.123234e-17 743.2256 681.9629)" class="st16"><tspan x="0" y="0" class="st18 st108">KTYA;</tspan><tspan x="32.9" y="0" class="st18 st108"> </tspan><tspan x="35.6" y="0" class="st18 st108">Before;</tspan><tspan x="72.3" y="0" class="st18 st108"> </tspan><tspan x="75.1" y="0" class="st18 st108">WC</tspan></text>
 		<rect x="747.6" y="587.9" class="st15" width="13.7" height="83.9"/>
 		<text transform="matrix(6.123234e-17 -1 1 6.123234e-17 757.4023 671.8389)" class="st16"><tspan x="0" y="0" class="st18 st108">KTYA;</tspan><tspan x="32.9" y="0" class="st18 st108 st110"> </tspan><tspan x="56.7" y="0" class="st18 st108">After; </tspan></text>
-		<text transform="matrix(1 0 0 1 914 768)" class="st21 st112">Lorem ipsum</text>
-		<text transform="matrix(1 0 0 1 -214 124)" class="st21 st112">Lorem ipsum</text>
 	</g>
 </g>
 <g>
@@ -1449,7 +1447,7 @@
 	<g class="st111">
 		<rect x="807.4" y="196.8" class="st0" width="109.4" height="113.2"/>
 		
-			<image style="overflow:visible;enable-background:new    ;" width="1" height="300" xlink:href="467602E011B9A6FD.png"  transform="matrix(17.28 0 0 0.288 812.89 218.07)">
+			<image style="overflow:visible;enable-background:new    ;" width="1" height="300" xlink:href="467602E011B9A6FE.png"  transform="matrix(17.28 0 0 0.288 812.89 218.07)">
 		</image>
 		<text transform="matrix(1 0 0 1 835.65 307.3)" class="st18 st112">0.0</text>
 		<text transform="matrix(1 0 0 1 835.65 287.07)" class="st18 st112">0.1</text>
@@ -1507,5 +1505,4 @@
 		<text transform="matrix(1 0 0 1 835.65 509.33)" class="st18 st112">Unclassified</text>
 	</g>
 </g>
-<text transform="matrix(1 0 0 1 683 -5)" class="st21 st112">Lorem ipsum</text>
 </svg>

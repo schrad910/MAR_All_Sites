@@ -47,5 +47,5 @@ ggplot() +
 
 
 
- ggsave(here("Figures/PCA_env.png"))
+ ggsave(here("Figures/01_PCA_env.pdf"))
   
