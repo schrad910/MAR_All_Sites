@@ -1,27 +1,78 @@
 ---
 title: "Manuscript"
 author: "Nicole Schrad"
-output: word_document
+fontsize: 12pt 
+header-includes:
+  -\usepackages(helvet)
+  -\renewcommand+\familydefault{\sfdefault}
+geometry: margin = 1in
+output: 
+  pdf_document:
+    fig_caption: true
+    fig_width: 8 
+    fig_height: 4 
+
 
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(
+  echo = FALSE,  # don't show code
+  include = TRUE, # show output 
+  warning = FALSE, # don't show warnings 
+  message = FALSE, # don't show messages 
+  cache = FALSE, # save run result in a cache folder, but tricky 
+  fig.width = 8, 
+  fig.height = 8, 
+  fig.path = 'Figures/', 
+  fig.algin = "center"
+  )
 ```
 
-```{r, include= FALSE, echo=FALSE}
-library(tidyverse)
-library(qiime2R)
-library(here)
-library(phyloseq)
-library(DESeq2)
-library(vegan)
+```{r}
+# install.packages("pacman") 
+library(pacman)
+
+p_load("tidyverse", "modelsummary", "ggplot2", "tinytex", "phyloseq", "DESeq2", "vegan")
 ```
+
+##Abstract
+
 
 ## Introduction
 
-Microbial metabolism drives the geochemistry, and therefore the water quality, of aquifers. The fate of many pollutants is determined by the pH, oxygen concentration, organic carbon availability, and the mineralogy of the soil and infiltrating water through the unsaturated zone. 
+*Microbial metabolism drives the geochemistry, and therefore the water quality, of aquifers. The fate of many pollutants is determined by the organic carbon availability, and the mineralogy of the soil and infiltrating water through the unsaturated zone. 
 
-One such method is MAR.  Managed aquifer recharge (MAR) is a set of tools and techniques that purposefully replenishes aquifers for environmental benefit or later recovery. There are many forms and water sources for MAR, including diverted slope runoff, treated stormwater, or river water. 
+*One such method is MAR.  Managed aquifer recharge (MAR) is a set of tools and techniques that purposefully replenishes aquifers for environmental benefit or later recovery. There are many forms and water sources for MAR, including diverted slope runoff, treated stormwater, or river water. 
+*
   
-The objectives of this study were to (1) understand the impact of stormwater infiltration on the soil microbial community and its biogeochemical functioning and (2) document common changes to the community introduced by the addition of a carbon rich PRB. We hypothesize that that 
+*The objectives of this study were to (1) understand the impact of stormwater infiltration on the soil microbial community and its biogeochemical functioning and (2) document common changes to the community introduced by the addition of a carbon rich PRB. We hypothesize that that.    
+```{r}
+phylumplot <- readRDS("~/Documents/SaltikovLab/Sequencing/MAR_All_Sites/Objects/phylumplot.rds")
+library(ggpubr)
+ggplot(phylumplot, aes(x = rel_abun, y= Phylum , fill= Timing )) +
+  geom_boxplot() +
+  theme_pubr()+
+  labs(title= "Phylum Relative Abundance Changes After Stimulated MAR",
+       x="Relative Abundance")+
+  theme(plot.title = element_text(hjust = 0.5, size = 14), 
+        plot.caption = element_text(hjust = 0, size=14),
+        legend.title = element_text(size=14),
+        legend.text = element_text(size=12),
+        axis.title = element_text(size=14),
+        axis.text = element_text(size=12))+
+  scale_fill_manual(values= c("skyblue","skyblue4")) 
+
+ggsave("Figures/phylum_plot.pdf", width=8, height = 8)
+```
+
+
+
+## Materials and Methods
+
+### Site Locations
+*3 different study locations in Pajaro Valley have 3 different soil properties 
+* At all locations multiple 1m
+### DNA and 16S Sequencing
+sam
+### 
