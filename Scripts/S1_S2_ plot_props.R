@@ -25,7 +25,7 @@ N_plot<-ggplot()+
   labs(y= "N (%-weight)")+
   scale_color_manual(values=palette)
 ggarrange(C_plot,N_plot, labels = c("A","B"), ncol=2, nrow = 1)
-ggsave(here("Figures/S1_C_N_plot.pdf"), height= 2, width = 7.5, units = "in")
+ggsave(here("Figures/SupplementaryFigs/SupFig01.tiff"), height= 2, width = 7.5, units = "in")
 
 
 ggplot()+
@@ -38,4 +38,4 @@ ggplot()+
   facet_grid(cols = vars(Location), rows= vars(Treatment))+
   scale_color_manual(values= c("#593F28", "#D0C1B0" ,"#739D6E"))+
   labs(y="Percent", x="Depth below plot (cm)", colour= "Grain Size")
-ggsave(here("Figures/S2_depth_profile.pdf"))  
+ggsave(here("Figures/SupplementaryFigs/SupFig02.tiff"))  

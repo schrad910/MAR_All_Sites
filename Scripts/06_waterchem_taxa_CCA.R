@@ -7,7 +7,7 @@ p_load(vegan, tidyverse, ggvegan, ggplot2 ,ggpubr,here, phyloseq, ggrepel)
 #load genus phyloseq
 phylo<-readRDS(here("Objects/genera.rds"))
 
-#looking at top 500 genus
+#looking at top 20 genus
 top20gen = sort(tapply(taxa_sums(phylo), tax_table(phylo)[, "Genus"], sum), TRUE)[1:20]
 gen20 = subset_taxa(phylo, Genus %in% names(top20gen))
 
@@ -109,7 +109,7 @@ ggplot()+
 
 pstat <- permustats(anova(redox_cca))
 summary(pstat)
-ggsave(here("Figures/xx_redox_species.svg"), height = 10,width = 10, units = "in")
+ggsave(here("Figures/06_redox_species.svg"), height = 10,width = 10, units = "in")
 
 
 
@@ -117,57 +117,57 @@ ggsave(here("Figures/xx_redox_species.svg"), height = 10,width = 10, units = "in
 
 
 
-properties_cca<- cca(species_waterchem~K+ Cl+ pH  + Na , data = env_waterchem)
+#properties_cca<- cca(species_waterchem~K+ Cl+ pH  + Na , data = env_waterchem)
 #anova.cca(properties_cca, by="terms")
 #anova.cca(properties_cca, by="axis")
 #anova.cca(properties_cca, by="margin")
 #anova.cca(properties_cca)
-vif.cca(properties_cca)
-summary(eigenvals(properties_cca))
-f_prop_cca <- fortify(properties_cca, axes = 1:2,)%>%
-  left_join(.,env[,1:7], by= c("Label"= "SampleID"))%>%
-  left_join(.,tax, by="Label")
+#vif.cca(properties_cca)
+#summary(eigenvals(properties_cca))
+#f_prop_cca <- fortify(properties_cca, axes = 1:2,)%>%
+ # left_join(.,env[,1:7], by= c("Label"= "SampleID"))%>%
+  #left_join(.,tax, by="Label")
 
-f_prop_cca1<-mutate(f_prop_cca, Genus= if_else(grepl('[0-9]', Genus),Family, Genus))
+#f_prop_cca1<-mutate(f_prop_cca, Genus= if_else(grepl('[0-9]', Genus),Family, Genus))
 
 #make arrows
 
-p_arrows <- subset(f_prop_cca1, Score == 'biplot') %>%
-  select(1:4)# take only biplot arrow scores
+#p_arrows <- subset(f_prop_cca1, Score == 'biplot') %>%
+ # select(1:4)# take only biplot arrow scores
 ## multiplier for arrows to scale them to the plot range
-p_mul <- ggvegan:::arrowMul(p_arrows[, take],
-                          subset(f_prop_cca, select = take, Score == 'species'))
-p_arrows[, take] <- p_arrows[, take] * p_mul
+#p_mul <- ggvegan:::arrowMul(p_arrows[, take],
+#                          subset(f_prop_cca, select = take, Score == 'species'))
+#p_arrows[, take] <- p_arrows[, take] * p_mul
 
 
 
 
 
 
-b<-ggplot()+
- geom_point(data = subset(f_prop_cca1, Score=="species"),
-           mapping = aes(x = CCA1, y = CCA2, col=Phylum)) + 
-  geom_text(data = subset(f_prop_cca1, Score=="species" ),
-                mapping = aes(x = CCA1, y = CCA2, label=Genus, col=Phylum), show.legend = F) +
+#b<-ggplot()+
+ #geom_point(data = subset(f_prop_cca1, Score=="species"),
+  #         mapping = aes(x = CCA1, y = CCA2, col=Phylum)) + 
+  #geom_text(data = subset(f_prop_cca1, Score=="species" ),
+   #             mapping = aes(x = CCA1, y = CCA2, label=Genus, col=Phylum), show.legend = F) +
   #stat_ellipse(data=subset(f_prop_cca, Score=="species"),
                #mapping = aes(x = CCA1, y = CCA2, col=Phylum))+
-  geom_segment(data = p_arrows,
-               mapping = aes(x = 0, y = 0, xend = CCA1, yend = CCA2),
-               arrow = arrow(length = unit(0.01, "npc"))) +
-  geom_text(data = p_arrows, # crudely push labels away arrow heads
-            mapping = aes(label = Label, x = CCA1*1.1, y = CCA2*1.1)) +
+  #geom_segment(data = p_arrows,
+   #            mapping = aes(x = 0, y = 0, xend = CCA1, yend = CCA2),
+    #           arrow = arrow(length = unit(0.01, "npc"))) +
+  #geom_text(data = p_arrows, # crudely push labels away arrow heads
+   #         mapping = aes(label = Label, x = CCA1*1.1, y = CCA2*1.1)) +
   #geom_point(data = subset(f_prop_cca, Score=="sites" & CCA2<5),
    #          mapping= aes(x=CCA1, y=CCA2, col= Treatment, shape=Location))+
   #stat_ellipse(data=subset(f_prop_cca, Score=="sites"),
   #mapping = aes(x = CCA1, y = CCA2, col=Treatment),type = "t")+
-  coord_fixed()+
-  scale_color_manual(values = palette)+ 
-  geom_abline(intercept = 0,slope = 0,linetype="dashed", size=0.8)+ 
-  geom_vline(aes(xintercept=0), linetype="dashed", size=0.8)+ 
-  labs(x="CCA1 (44%)", y="CCA2 (7.8%)")+
-  theme_pubr(legend = "right")
+  #coord_fixed()+
+  #scale_color_manual(values = palette)+ 
+  #geom_abline(intercept = 0,slope = 0,linetype="dashed", size=0.8)+ 
+  #geom_vline(aes(xintercept=0), linetype="dashed", size=0.8)+ 
+  #labs(x="CCA1 (44%)", y="CCA2 (7.8%)")+
+  #theme_pubr(legend = "right")
 
-ggsave(here("Figures/xx_CCA_waterchem_sup.png"))
+#ggsave(here("Figures/xx_CCA_waterchem_sup.png"))
 
 
 

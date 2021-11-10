@@ -47,7 +47,7 @@ ggplot(data=out_df, aes(x=log2, y=reorder(Genus, -log2), fill=Phylum))+
   coord_fixed()+  
   theme(legend.text = element_text(face = "italic"), axis.text.y  = element_text(face = "italic"))
 
-  ggsave(here("Figures/05_ancom_PRB_genus.pdf"), width = 7, height = 7, units = "in")
+  ggsave(here("Figures/Figures/Figure05.tiff"), width = 7, height = 7, units = "in")
 
 
 

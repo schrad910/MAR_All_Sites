@@ -37,9 +37,9 @@ joined_tree$Family<-with(joined_tree, ifelse(is.na(Family)& isTip==TRUE, "Unclas
                                             paste0("*", Family, "*")))
 
 
-palette<-c("#dcd4cd","#564b40", "#355e3b", "#88a47d" , "#89C0DB",
+palette<-c("#ccc0b6","#564b40", "#355e3b", "#88a47d" , "#89C0DB",
             "#b38b6d", "#8c8c8c", "#80654C","#c2d1bc", "#000000" )
-i_label<-ref_taxa$label
+
 
 
 p<-ggtree(joined_tree, ladderize = F)+
@@ -80,7 +80,7 @@ gheatmap(p,heatmap,
   ggplot2::ylim(-5, 30) +
   theme(legend.position = "right", legend.text = element_markdown(size=12) )
   
-ggsave(here("Figures/nosZ_phylo_heatmap.svg"), width= 14, height = 10, units = "in")  
+ggsave(here("Figures/07_nosZ_phylo_heatmap.svg"), width= 14, height = 10, units = "in")  
 
 
 #library(ANCOMBC) ##neither treatment or timign is significant
