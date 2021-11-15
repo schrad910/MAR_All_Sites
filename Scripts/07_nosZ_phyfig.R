@@ -75,7 +75,7 @@ gheatmap(p,heatmap,
            legend_title="Abundance",
            colnames_angle=90,
            hjust=1) +
-  scale_fill_gradient(low =  "#F2E7DD" ,
+  scale_fill_gradient(low =  "#89C0DB" ,
                         high = "#593F28", na.value = "white", name="Relative Abundance")+
   ggplot2::ylim(-5, 30) +
   theme(legend.position = "right", legend.text = element_markdown(size=12) )
