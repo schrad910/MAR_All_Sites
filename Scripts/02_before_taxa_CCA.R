@@ -68,7 +68,7 @@ ggplot()+
   scale_shape_manual(values = c(15,17,19))+
   geom_abline(intercept = 0,slope = 0,linetype="dashed", size=0.8)+ 
   geom_vline(aes(xintercept=0), linetype="dashed", size=0.8)+ 
-  labs(x="CCA1 (12.8%)", y="CCA2 (11.2%)" , caption = "ANOVA(Location)<.001")+ 
+  labs(x="CCA1 (12.8%)", y="CCA2 (11.2%)" , caption = "PERMANOVA(Location)<.001")+ 
   theme_pubr(legend = "right")
 
 ggsave(here("Figures/02_before_cca.svg"))

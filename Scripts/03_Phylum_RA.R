@@ -98,7 +98,7 @@ bray<-ggplot(f_ndms)+
   geom_vline(aes(xintercept=0), linetype="dashed", size=0.8)+
   stat_ellipse( aes(x=NMDS1,y=NMDS2, col=Location, fill=Location, linetype=Location),
                geom="polygon", type="t", alpha= 0.2, show.legend = T, level = .95)+
-    labs(caption = "ANOVA(Location) <0.0001")
+    labs(caption = "PERMANOVA(Location) <0.0001")
 
 bray
 

@@ -101,7 +101,7 @@ ggplot()+
   scale_fill_manual(values = palette1)+
   geom_abline(intercept = 0,slope = 0,linetype="dashed", size=0.8)+ 
   geom_vline(aes(xintercept=0), linetype="dashed", size=0.8)+ 
-  labs(x="CCA1(43.9%)", y="CCA2(3%)", caption = "ANOVA(model)<0.001")+
+  labs(x="CCA1(43.9%)", y="CCA2(3%)", caption = "PERMANOVA(model)<0.001")+
   theme_pubr(legend = "right")+
   theme(legend.text = element_text(face = "italic"), text=element_text(size = 12))+
   guides(color = guide_legend(override.aes = list(size=5)))

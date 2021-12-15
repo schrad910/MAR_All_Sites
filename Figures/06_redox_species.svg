@@ -16,7 +16,7 @@
 	.st10{letter-spacing:5;}
 	.st11{fill:#5E3023;}
 	.st12{fill:#AA8B6F;}
-	.st13{fill:#D3C29D;}
+	.st13{fill:#EDD9AF;}
 	.st14{fill:#89C0DB;}
 	.st15{fill:#B3C5AB;}
 	.st16{fill:#3E5524;}
@@ -36,7 +36,7 @@
 	.st30{font-size:12px;}
 	.st31{fill:none;stroke:#333333;stroke-width:1.16;stroke-linejoin:round;stroke-miterlimit:10;}
 	.st32{font-size:9.6px;}
-	.st33{letter-spacing:4;}
+	.st33{letter-spacing:2;}
 </style>
 <rect class="st0" width="720" height="720"/>
 <g>
@@ -55,7 +55,7 @@
 		<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
 	</clipPath>
 	<g class="st1">
-		<rect y="79.2" class="st2" width="720" height="561.7"/>
+		<rect y="78.2" class="st2" width="720" height="561.7"/>
 	</g>
 </g>
 <g>
@@ -75,28 +75,28 @@
 	</clipPath>
 	<g class="st3">
 		<rect x="46.3" y="85.1" class="st0" width="551.8" height="503.8"/>
-		<text transform="matrix(1 0 0 1 477.4246 328.22)" class="st4 st5 st6">Pseudarthrobacter</text>
-		<rect x="532.3" y="285.2" class="st7" width="62.4" height="16.8"/>
-		<text transform="matrix(1 0 0 1 532.2646 297.4199)" class="st8"><tspan x="0" y="0" class="st9 st5 st6">Vogesel</tspan><tspan x="57.7" y="0" class="st9 st5 st6">-</tspan></text>
-		<text transform="matrix(1 0 0 1 480.6153 463.04)" class="st9 st5 st6">Novosphingobium</text>
-		<text transform="matrix(1 0 0 1 433.8833 294.31)" class="st9 st5 st6">Pseudomonas</text>
-		<text transform="matrix(1 0 0 1 510.2078 439.47)" class="st9 st5 st6">Polaromonas</text>
-		<rect x="509.6" y="386.1" class="st7" width="85.3" height="16.8"/>
-		<text transform="matrix(1 0 0 1 509.584 398.3105)" class="st8"><tspan x="0" y="0" class="st9 st5 st6 st10">Tropici</tspan><tspan x="80.6" y="0" class="st9 st5 st6">-</tspan></text>
-		<text transform="matrix(1 0 0 1 422.5802 421.99)" class="st9 st5 st6">Bradyrhizobium</text>
+		<text transform="matrix(1 0 0 1 477.4246 328.23)" class="st4 st5 st6">Pseudarthrobacter</text>
+		<rect x="532.2" y="285.3" class="st7" width="62.4" height="16.8"/>
+		<text transform="matrix(1 0 0 1 532.2041 297.4902)" class="st8"><tspan x="0" y="0" class="st9 st5 st6">Vogesel</tspan><tspan x="57.7" y="0" class="st9 st5 st6">-</tspan></text>
+		<text transform="matrix(1 0 0 1 480.6153 463.05)" class="st9 st5 st6">Novosphingobium</text>
+		<text transform="matrix(1 0 0 1 433.8333 294.3)" class="st9 st5 st6">Pseudomonas</text>
+		<text transform="matrix(1 0 0 1 510.3378 439.51)" class="st9 st5 st6">Polaromonas</text>
+		<rect x="499.6" y="387.1" class="st7" width="85.3" height="16.8"/>
+		<text transform="matrix(1 0 0 1 499.584 399.3203)" class="st8"><tspan x="0" y="0" class="st9 st5 st6 st10">Tropici</tspan><tspan x="80.6" y="0" class="st9 st5 st6">-</tspan></text>
+		<text transform="matrix(1 0 0 1 419.952 414.5938)" class="st9 st5 st6">Bradyrhizobium</text>
 		<text transform="matrix(1 0 0 1 364.6125 223.38)" class="st4 st5 st6">Gaiella</text>
-		<text transform="matrix(1 0 0 1 489.3823 260.15)" class="st11 st5 st6">Flavobacterium</text>
-		<text transform="matrix(1 0 0 1 123.6057 354.7)" class="st9 st5 st6">Nitrosomonadaceae MND1</text>
-		<text transform="matrix(1 0 0 1 49.8602 381.19)" class="st9 st5 st6">Nitrosomonadaceae IS-44</text>
-		<text transform="matrix(1 0 0 1 181.9563 308.72)" class="st12 st5 st6">Nitrospira</text>
-		<text transform="matrix(1 0 0 1 72.9193 472.42)" class="st13 st5 st6">Candidatus Nitrososphaera</text>
-		<text transform="matrix(1 0 0 1 366.7531 103.07)" class="st9 st5 st6">Nitrosomonadaceae Ellin6067</text>
-		<text transform="matrix(1 0 0 1 231.8975 404.41)" class="st14 st5 st6">Pyrinomonadaceae RB41</text>
-		<text transform="matrix(1 0 0 1 432.8733 355.85)" class="st15 st5 st6">Anaeromyxobacter</text>
-		<text transform="matrix(1 0 0 1 482.6369 367.93)" class="st9 st5 st6">Sphingobium</text>
-		<text transform="matrix(1 0 0 1 346.3331 192.5)" class="st9 st5 st6">Sphingomonas</text>
-		<text transform="matrix(1 0 0 1 86.8077 367.33)" class="st16 st5 st6">Anaerolineaceae UTCFX1</text>
-		<text transform="matrix(1 0 0 1 87.6576 453.27)" class="st15 st5 st6">Haliangium</text>
+		<text transform="matrix(1 0 0 1 489.6723 260.31)" class="st11 st5 st6">Flavobacterium</text>
+		<text transform="matrix(1 0 0 1 128.2357 354.87)" class="st9 st5 st6">Nitrosomonadaceae MND1</text>
+		<text transform="matrix(1 0 0 1 49.9402 381.21)" class="st9 st5 st6">Nitrosomonadaceae IS-44</text>
+		<text transform="matrix(1 0 0 1 160.3963 325.32)" class="st12 st5 st6">Nitrospira</text>
+		<text transform="matrix(1 0 0 1 51.4893 491.97)" class="st13 st5 st6">Candidatus Nitrososphaera</text>
+		<text transform="matrix(1 0 0 1 359.9999 105.4178)" class="st9 st5 st6">Nitrosomonadaceae Ellin6067</text>
+		<text transform="matrix(1 0 0 1 150.2575 424.14)" class="st14 st5 st6">Pyrinomonadaceae RB41</text>
+		<text transform="matrix(1 0 0 1 469.4454 355.3608)" class="st15 st5 st6">Anaeromyxobacter</text>
+		<text transform="matrix(1 0 0 1 482.6369 368)" class="st9 st5 st6">Sphingobium</text>
+		<text transform="matrix(1 0 0 1 346.2431 192.56)" class="st9 st5 st6">Sphingomonas</text>
+		<text transform="matrix(1 0 0 1 77.5115 365.9452)" class="st16 st5 st6">Anaerolineaceae UTCFX1</text>
+		<text transform="matrix(1 0 0 1 58.1776 438.33)" class="st15 st5 st6">Haliangium</text>
 		<circle class="st17" cx="557.1" cy="313.3" r="2"/>
 		<circle class="st18" cx="548.5" cy="302.2" r="2"/>
 		<circle class="st18" cx="570.5" cy="448.2" r="2"/>
@@ -125,11 +125,11 @@
 		<polyline class="st25" points="222.9,550.6 221.5,555.4 226.4,554.2 		"/>
 		<line class="st25" x1="441.3" y1="342.5" x2="301.3" y2="434.4"/>
 		<polyline class="st25" points="303.5,429.9 301.3,434.4 306.3,434.1 		"/>
-		<text transform="matrix(1 0 0 1 261.7137 362.79)" class="st26 st27">DOC</text>
-		<text transform="matrix(1 0 0 1 133.09 331.23)" class="st26 st27">NO3</text>
-		<text transform="matrix(1 0 0 1 198.4618 570.03)" class="st26 st27">Mn</text>
+		<text transform="matrix(1 0 0 1 257.7137 363.79)" class="st26 st27">DOC</text>
+		<text transform="matrix(1 0 0 1 138.09 333.23)" class="st26 st27">NO3</text>
+		<text transform="matrix(1 0 0 1 204.4618 567.03)" class="st26 st27">Mn</text>
 		<text transform="matrix(1 0 0 1 285.0382 442.99)" class="st26 st27">Fe</text>
-		<line class="st28" x1="0" y1="342.5" x2="720" y2="342.5"/>
+		<line class="st28" x1="46.3" y1="342.5" x2="610" y2="342.5"/>
 		<line class="st28" x1="441.3" y1="589" x2="441.3" y2="85.1"/>
 	</g>
 </g>
@@ -182,8 +182,8 @@
 		<text transform="matrix(1 0 0 1 639.26 375.04)" class="st5 st32">Myxococcota</text>
 		<text transform="matrix(1 0 0 1 639.26 392.32)" class="st5 st32">Nitrospirota</text>
 		<text transform="matrix(1 0 0 1 639.26 409.6)" class="st5 st32">Proteobacteria</text>
-		<rect x="503" y="624.5" class="st7" width="95.7" height="11.4"/>
-		<text transform="matrix(1 0 0 1 502.9883 632.75)" class="st8"><tspan x="0" y="0" class="st26 st32 st33">ANOVA(mod</tspan><tspan x="92.5" y="0" class="st26 st32">-</tspan></text>
+		<rect x="475.3" y="624.5" class="st7" width="123.4" height="11.4"/>
+		<text transform="matrix(1 0 0 1 475.2666 632.75)" class="st8"><tspan x="0" y="0" class="st26 st32 st33">PERMANOVA(mod</tspan><tspan x="120.2" y="0" class="st26 st32">-</tspan></text>
 	</g>
 </g>
 </svg>

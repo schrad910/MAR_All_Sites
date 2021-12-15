@@ -6,9 +6,11 @@ set.seed(3618)
 genus<- readRDS(here("Objects/nosZ_phylo.rds"))
 #fit<- readRDS(here("Objects/nosz_phytree.RDS"))
 
-rel_genus <- transform_sample_counts(genus, function(otu) otu/sum(otu))
+#rel_genus <- transform_sample_counts(genus, function(otu) otu/sum(otu))
 
-
+table_hel<-as(otu_table(genus), "matrix")
+table_hel<- decostand(table_hel, method = "hellinger")
+otu_table(genus)<-otu_table(table_hel, taxa_are_rows = F)
 #g_table<- as(otu_table(genus), "matrix")
 #taxa<- as(tax_table(genus), "matrix")%>%
   #as.data.frame()
@@ -23,7 +25,7 @@ tree$label<-gsub("_", " ", tree$label)
   
 
 
-table<-fortify(rel_genus)%>%
+table<-fortify(genus)%>%
   subset(., isTip==TRUE)%>%
   select(-x,-y,-parent,-node,-isTip, -branch.length, -angle, -branch)
 joined_tree<-right_join(table, tree, by="label")
@@ -76,7 +78,7 @@ gheatmap(p,heatmap,
            colnames_angle=90,
            hjust=1) +
   scale_fill_gradient(low =  "#98D4F2" ,
-                        high = "#593F28", na.value = "white", name="Relative Abundance")+
+                        high = "#593F28", na.value = "white", name="Hellinger Abundance")+
   ggplot2::ylim(-5, 30) +
   theme(legend.position = "right", legend.text = element_markdown(size=12) )
   

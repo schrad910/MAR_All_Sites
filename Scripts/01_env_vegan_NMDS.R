@@ -34,7 +34,7 @@ ggplot() +
   scale_fill_manual(values = palette)+
   geom_abline(intercept = 0,slope = 0,linetype=2, size=0.8, colour= 'grey')  + 
   geom_vline(aes(xintercept=0), linetype=2, size=0.8, colour= 'grey')+ 
-  labs(x="NMDS1", y="NMDS2", caption="ANOVA(Location) < 0.001")+
+  labs(x="NMDS1", y="NMDS2", caption="PERMANOVA(Location) < 0.001")+
   scale_shape_manual(values = c(15,17,19))+
   theme_pubr(legend = "right")+
   geom_text(data = arrow, aes(x = NMDS1*1.1 , y = NMDS2*1.1), 
