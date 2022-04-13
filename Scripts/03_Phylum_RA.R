@@ -4,7 +4,7 @@ p_load(phyloseq,here,tidyverse, ggplot2, forcats, ggpubr, vegan, ggvegan, ggtext
 
 
 #reading in Phylum data
-metadata <- readRDS("~/Documents/SaltikovLab/Sequencing/MAR_All_Sites/Objects/metadata.rds")%>%
+metadata <- readRDS(here("Objects/metadata.rds"))%>%
   subset(., Treatment %in% c("NS", "WC"))
 metadata$Location<- factor(metadata$Location, levels = c("HSP", "KTR", "KTYA"), ordered = T)
 
@@ -87,6 +87,8 @@ f_ndms<- fortify(ndms)%>%
 anova<- adonis2(table~Location, data = metadata, 
                 permutations = 10000 )
 #doesn't significantly separate by timing
+
+anovaT<- adonis2(table~Timing, data = metadata)
 f_ndms$Location<-factor(f_ndms$Location, levels = c("HSP", "KTR", "KTYA"), ordered = T)
 bray<-ggplot(f_ndms)+
   geom_point(aes(x=NMDS1,y=NMDS2, col=Location, shape=Timing))+

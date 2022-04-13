@@ -13,19 +13,19 @@ avg<- env%>%
 palette<- readRDS(here("Objects/palette.RDS"))
 ##making plots looking at changes between C and N due to iniliftratin and location.
 C_plot<-ggplot()+
-  geom_boxplot(data= env, aes(x=Location, y= C, col=Timing), position = "dodge")+
+  geom_boxplot(data= env, aes(x=Location, y= C), position = "dodge")+
   coord_fixed(3)+
   theme_pubr(legend = "right")+
   labs(y= "C (%-weight)")+
   scale_color_manual(values=palette)
 N_plot<-ggplot()+
-  geom_boxplot(data= env, aes(x=Location, y= N, col=Timing), position = "dodge")+
+  geom_boxplot(data= env, aes(x=Location, y= N), position = "dodge")+
   coord_fixed(33)+
   theme_pubr(legend = "right")+
   labs(y= "N (%-weight)")+
   scale_color_manual(values=palette)
 ggarrange(C_plot,N_plot, labels = c("A","B"), ncol=2, nrow = 1)
-ggsave(here("Figures/SupplementaryFigs/SupFig02.tiff"), height= 2, width = 7.5, units = "in")
+ggsave(here("Figures/SupplementaryFigs/SupFig04.tiff"), height= 2, width = 7.5, units = "in")
 
 
 ggplot()+
