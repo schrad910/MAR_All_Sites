@@ -41,5 +41,7 @@ ggplot()+
   facet_grid(cols = vars(Location), rows= vars(Treatment))+
   scale_color_manual(name= "Grain Size", labels= c("Clay", "Sand", "Silt"),values= c("#593F28", "#D0C1B0" ,"#739D6E"))+
   scale_shape_manual(name= "Grain Size", labels= c("Clay", "Sand", "Silt"), values = c(15,17,19))+
-  labs(y="Percent", x="Depth below plot (cm)")
+  labs(y="Percent", x="Depth below plot (cm)")+
+  theme(panel.background = element_rect(fill = NA, color = "black"))
 ggsave(here("Figures/Round2/SupFig02.tiff"))  
+

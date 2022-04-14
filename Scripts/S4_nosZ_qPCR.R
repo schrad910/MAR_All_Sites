@@ -51,7 +51,7 @@ ggplot(subset(pfaffl, Timing == "after"), aes(x=Treatment, y= avg_ratio, fill=Tr
   labs(x="", y= y)+
   scale_fill_manual(values = c(palette[4],palette[2]))
 
-ggsave(here("Figures/SupplementaryFigs/SupFig04.tiff"))
+ggsave(here("Figures/Round2/SupFig04.tiff"))
 
 #changing nosZ Cq with no detection from zero to 40 (neg control) and adding informational columns about the samples
 updated_qPCR <-sliceqPCR%>%
