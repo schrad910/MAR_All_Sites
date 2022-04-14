@@ -25,7 +25,7 @@ N_plot<-ggplot()+
   labs(y= "N (%-weight)")+
   scale_color_manual(values=palette)
 ggarrange(C_plot,N_plot, labels = c("A","B"), ncol=2, nrow = 1)
-ggsave(here("Figures/SupplementaryFigs/SupFig04.tiff"), height= 2, width = 7.5, units = "in")
+ggsave(here("Figures/Round2/SupFig03.tiff"), height= 2, width = 7.5, units = "in")
 
 
 ggplot()+
@@ -42,4 +42,4 @@ ggplot()+
   scale_color_manual(name= "Grain Size", labels= c("Clay", "Sand", "Silt"),values= c("#593F28", "#D0C1B0" ,"#739D6E"))+
   scale_shape_manual(name= "Grain Size", labels= c("Clay", "Sand", "Silt"), values = c(15,17,19))+
   labs(y="Percent", x="Depth below plot (cm)")
-ggsave(here("Figures/SupplementaryFigs/SupFig03.tiff"))  
+ggsave(here("Figures/Round2/SupFig02.tiff"))  
