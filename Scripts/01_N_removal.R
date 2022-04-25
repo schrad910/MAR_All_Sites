@@ -75,4 +75,4 @@ ggplot(data=total,
   labs(x="Treatment",y="Fraction of Dissolved Nitrogen Removed")+
   coord_fixed(ratio=3.8)
 
-ggsave(here("Figures/Round2/Figure01.tiff"))
+ggsave(here("Figures/Round2/Figure01.tiff"),height=4, width=5, unit="in")
