@@ -82,7 +82,7 @@ gheatmap(p,heatmap,
   ggplot2::ylim(-5, 30) +
   theme(legend.position = "right", legend.text = element_markdown(size=12) )
   
-ggsave(here("Figures/Round2/Figure08.svg"), width= 14, height = 10, units = "in")  
+ggsave(here("Figures/Round2/Figure08.svg"), width= 168,  units = "mm")  
 
 
 #library(ANCOMBC) ##neither treatment or timign is significant
