@@ -34,7 +34,7 @@ ggplot() +
   scale_fill_manual(values = palette)+
   geom_abline(intercept = 0,slope = 0,linetype=2, size=0.8, colour= 'grey')  + 
   geom_vline(aes(xintercept=0), linetype=2, size=0.8, colour= 'grey')+ 
-  labs(x="NMDS1", y="NMDS2", caption="PERMANOVA(Location) < 0.001")+
+  labs(x="NMDS1", y="NMDS2", caption="PERMANOVA(Location) < 0.001\n Stress=0.02")+
   scale_shape_manual(values = c(15,17,19))+
   theme_pubr(legend = "right")+
   geom_text(data = arrow, aes(x = NMDS1*1.1 , y = NMDS2*1.1), 
@@ -49,6 +49,6 @@ ggplot() +
 
 
 
- ggsave(here("Figures/Round2/Figure2.svg"))
+ ggsave(here("round3/Figure02.svg"))
 
  
