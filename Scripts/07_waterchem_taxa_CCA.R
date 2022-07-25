@@ -6,7 +6,9 @@ set.seed(3618)
 p_load(vegan, tidyverse, ggvegan, ggplot2 ,ggpubr,here, phyloseq, ggrepel)
 #load genus phyloseq
 phylo<-readRDS(here("Objects/genera.rds"))
-
+#subsetting samples before selecting top 20
+phylo<- subset_samples(phylo, Location %in% c("KTR","KTYA")& Treatment%in% c("NS","WC")&
+                       Timing=="After")
 #looking at top 20 genus
 top20gen = sort(tapply(taxa_sums(phylo), tax_table(phylo)[, "Genus"], sum), TRUE)[1:20]
 gen20 = subset_taxa(phylo, Genus %in% names(top20gen))
@@ -19,8 +21,7 @@ tax<- as(tax_table(gen20), "matrix")%>%
 env<- read_tsv(here("Environment/metadata.txt"), 
          col_type = cols(Timing = col_factor(levels = c("Before","After")), 
                          Treatment = col_factor(levels = c("NS","MX","WC","BC")),
-                         Location = col_factor(levels = c("HSP","KTR","KTYA"))))%>%
-  select(-Sample1)
+                         Location = col_factor(levels = c("HSP","KTR","KTYA"))))
 #subset to remove
 env_waterchem<- subset(env,!is.na(DOC) & Treatment %in% c("NS", "WC"))%>%
   column_to_rownames(.,var="SampleID")
@@ -51,9 +52,9 @@ species_waterchem<- subset(species, rownames(species) %in% rownames(env_waterche
 #Makign model with redox- driven ions # including SO4 was codependent on NO3 
 #model explains 50% 
 redox_cca<- cca(species_waterchem~DOC + NO3 +  Mn + Fe , data = env_waterchem)
-#anova.cca(redox_cca, by="terms")
-#anova.cca(redox_cca, by="axis")
-#anova.cca(redox_cca, by="margin")
+anova.cca(redox_cca, by="terms")
+anova.cca(redox_cca, by="axis")
+anova.cca(redox_cca, by="margin")
 vif.cca(redox_cca)#not codependent
 summary(eigenvals(redox_cca))
 
@@ -101,7 +102,7 @@ ggplot()+
   scale_fill_manual(values = palette1)+
   geom_abline(intercept = 0,slope = 0,linetype="dashed", size=0.8)+ 
   geom_vline(aes(xintercept=0), linetype="dashed", size=0.8)+ 
-  labs(x="CCA1(43.9%)", y="CCA2(3%)", caption = "PERMANOVA(model)<0.001")+
+  labs(x="CCA1(43.3%)", y="CCA2(3.2%)", caption = "PERMANOVA(model)<0.001")+
   theme_pubr(legend = "right")+
   theme(legend.text = element_text(face = "italic"), text=element_text(size = 12))+
   guides(color = guide_legend(override.aes = list(size=5)))
@@ -109,7 +110,7 @@ ggplot()+
 
 pstat <- permustats(anova(redox_cca))
 summary(pstat)
-ggsave(here("Figures/Round2/Figure07.svg"), height = 10,width = 10, units = "in")
+ggsave(here("round3/Figure07.svg"), height = 10,width = 10, units = "in")
 
 
 

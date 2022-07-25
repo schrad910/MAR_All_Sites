@@ -6,17 +6,19 @@ phylo<- readRDS(here("Objects/genera.rds"))
 metadata <- readRDS(here("Objects/metadata.rds"))%>%
   subset(., Timing == "After" & Treatment%in%  c("WC","NS"))
 after<- subset_samples(phylo, Timing == "After" & Treatment %in%  c("WC","NS"))
-#filter outtaxa not seen more than 10 times in 25% of the samples to reduce low abundance 
-after<- filter_taxa(after, function(x) sum(x > 52) > (0.25*length(x)), TRUE)
+#filter outtaxa not seen more than 100 times in 25% of the samples to reduce low abundance 
+after<- filter_taxa(after, function(x) sum(x >100) > (0.25*length(x)), TRUE)
 taxa<-as(tax_table(after), "matrix")%>%
   as_tibble(rownames = "Label")
 table<-as(otu_table(after), "matrix")
 
-
-
-out = ancombc(phyloseq= after, formula = "Treatment", p_adj_method = "holm", zero_cut=.9,
+after_hsp<-subset_samples(after, Location=="HSP")
+after_ktr<-subset_samples(after, Location=="KTR")
+after_ktya<-subset_samples(after, Location=="KTYA")
+ancom_treatment<- function(phyloseq) {
+  out = ancombc(phyloseq= phyloseq, formula = "Treatment", p_adj_method = "holm", zero_cut=.9,
                struc_zero=FALSE,   alpha=0.05) 
-out_df <- data.frame(
+  out_df <- data.frame(
   Species = row.names(out$res$beta),
   coef = unlist(out$res$beta),
   se = unlist(out$res$se),
@@ -25,29 +27,54 @@ out_df <- data.frame(
   q_val = unlist(out$res$q_val),
   diff_abn = unlist(out$res$diff_abn))
 
-out_df<- subset(out_df, diff_abn==TRUE)%>%
+  out_df<- subset(out_df, diff_abn==TRUE)%>%
   mutate(., log2= coef * log2(exp(1)))%>%
   mutate(., selog2= se *log2(exp(1)))%>%
   left_join(., taxa, by= c("Species" = "Label"))
 
-out_df<- mutate(out_df, Genus= if_else(grepl('[0-9]', Genus),paste0(Family," ", Genus), Genus))%>%
+  out_df<- mutate(out_df, Genus= if_else(grepl('[0-9]', Genus),paste0(Family," ", Genus), Genus))%>%
   mutate(., Genus= if_else(Genus=="hgcI clade", paste0(Family," ", Genus), Genus))
+}
+
+hsp<-ancom_treatment(after_hsp) %>%
+  mutate(.,location="HSP")
+ktr<-ancom_treatment(after_ktr)%>%
+  mutate(.,location="KTR")
+ktya<-ancom_treatment(after_ktya)%>%
+  mutate(.,location="KTYA")
+
+# after_hsp1<-subset_samples(after, Location=="HSP"& Replicate==1)
+# after_ktr1<-subset_samples(after, Location=="KTR"& Replicate==1)
+# after_ktya1<-subset_samples(after, Location=="KTYA"& Replicate==1)
+# hsp1<-ancom_treatment(after_hsp1) 
+# ktr1<-ancom_treatment(after_ktr1)
+# ktya1<-ancom_treatment(after_ktya1)
+# identical(hsp,hsp1)
+# identical(ktr, ktr1)
+# identical(ktya,ktya1)
+
+combined<-rbind(hsp,ktr,ktya)
+
+n<-inner_join(hsp, ktya, by="Species")%>%
+  select(Phylum.x,Family.x, Genus.x, log2.x, log2.y)
 
 
-
-palette<-colorRampPalette(readRDS(here("Objects/palette.RDS")))(8)
-palette1<- c("#7D9FAE" ,"#593F28" ,  "#89C0DB" ,"#80654C",  "#476129" ,  "#655F54" ,
-              "#A8937E" , "#8AA67E" ,"#B8B89F" ,"#6C855C"  )
-ggplot(data=out_df, aes(x=log2, y=reorder(Genus, -log2), fill=Phylum))+
+palette<-readRDS(here("Objects/palette.RDS"))
+  palette1<- c("#7D9FAE" ,"#593F28" ,  "#89C0DB" ,"#80654C",  "#476129" ,  "#655F54" ,
+              "#A8937E" , "#8AA67E" ,"#B8B89F" ,"#6C855C", "#00008B", "#000000")
+ggplot(data=combined, aes(x=log2, y=reorder(Genus, -log2), fill=Phylum))+
   geom_col( position = "dodge")+
+  facet_grid(cols=vars(location))+
+  geom_vline(aes(xintercept=0), linetype=2, color="grey")+
   geom_errorbar(aes( xmin= log2-selog2,xmax=log2+selog2), width=.2, position = position_dodge(1))+
-  scale_fill_manual(values = palette1)+
+  scale_fill_manual(values = palette)+
   theme_pubr(legend="right")+
   labs(x= "Log 2- Fold Abundance Difference", y= "Genus")+
-  coord_fixed()+  
   theme(legend.text = element_text(face = "italic"), axis.text.y  = element_text(face = "italic"))
 
-  ggsave(here("Figures/Round2/Figure06.tiff"), width = 7, height = 7, units = "in")
+
+ggsave(here("round3/Figure06.tiff"), height=10.5, unit="in")
+
 
 
 
