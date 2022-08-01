@@ -81,7 +81,7 @@ combined<-rbind(hsp,ktr,ktya)
 palette<-c("#89c0db","#2c7dbc","#003790","#cbe2ff","#8092bb",
            "#615e90","#e2d3c1",
            "#b29f8a","#856d56","#593f28","#97d0a4","#447958","#004429")
-saveRDS(palette,file=here("Objects/palette.RDS"))
+#saveRDS(palette,file=here("Objects/palette.RDS"))
 ggplot(data=combined)+
   geom_col(aes(x=log2, y=reorder(Genus,-log2), fill=Phylum))+
   geom_errorbarh(aes(y=Genus, xmin= log2-selog2,xmax=log2+selog2), height=.2)+
@@ -89,8 +89,10 @@ ggplot(data=combined)+
   facet_grid(cols = vars(location))+
   scale_fill_manual(values = palette)+
   theme_pubr(legend="right")+
-  labs(x= "Log 2-Fold Abundance Difference", y= "Genus")+
-  theme(legend.text = element_text(face = "italic"), axis.text.y  = element_text(face = "italic"))
+  labs(x= "Log 2-Fold Abundance Difference", y= "Genus", caption= "Native soil (no PRB)")+
+  theme(legend.text = element_text(face = "italic"), 
+        axis.text.y  = element_text(face = "italic"),
+        axis.title.y = element_text(vjust=1.02,hjust=1, face="bold", angle=0))
 
 
 ggsave(here("round3/Figure05.tiff"),height = 9, unit="in")  

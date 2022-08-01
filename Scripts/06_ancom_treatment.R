@@ -68,9 +68,12 @@ ggplot(data=combined, aes(x=log2, y=reorder(Genus, -log2), fill=Phylum))+
   geom_vline(aes(xintercept=0), linetype=2, color="grey")+
   geom_errorbar(aes( xmin= log2-selog2,xmax=log2+selog2), width=.2, position = position_dodge(1))+
   scale_fill_manual(values = palette)+
+
   theme_pubr(legend="right")+
-  labs(x= "Log 2- Fold Abundance Difference", y= "Genus")+
-  theme(legend.text = element_text(face = "italic"), axis.text.y  = element_text(face = "italic"))
+  labs(x= "Log 2- Fold Abundance Difference",  y = "Genus", caption = "Soils under a carbon-rich PRB")+
+  theme(legend.text = element_text(face = "italic"), 
+        axis.text.y  = element_text(face = "italic"), 
+        axis.title.y = element_text(vjust=1.02,hjust=1, face="bold", angle=0))
 
 
 ggsave(here("round3/Figure06.tiff"), height=10.5, unit="in")
