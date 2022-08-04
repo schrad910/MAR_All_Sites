@@ -73,10 +73,10 @@ ggplot(data=combined, aes(x=log2, y=reorder(Genus, -log2), fill=Phylum))+
   labs(x= "Log 2- Fold Abundance Difference",  y = "Genus", caption = "Soils under a carbon-rich PRB")+
   theme(legend.text = element_text(face = "italic"), 
         axis.text.y  = element_text(face = "italic"), 
-        axis.title.y = element_text(vjust=1.02,hjust=1, face="bold", angle=0))
+        axis.title.y = element_text(vjust=1.02,hjust=1, face="bold", angle=0,size=12))
 
 
-ggsave(here("round3/Figure06.tiff"), height=10.5, unit="in")
+ggsave(here("round3/Figure06.svg"), height=10.5, unit="in")
 
 
 

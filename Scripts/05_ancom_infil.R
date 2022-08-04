@@ -76,7 +76,7 @@ ktya<-ancom_infil(native_soil_ktya)%>%
 # identical(ktr, ktr1)
 # identical(ktya,ktya1)
 combined<-rbind(hsp,ktr,ktya)
-
+combined<-mutate(combined, Genus= ifelse(Genus=="Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium", "Rhizobium",Genus))
 
 palette<-c("#89c0db","#2c7dbc","#003790","#cbe2ff","#8092bb",
            "#615e90","#e2d3c1",
@@ -95,7 +95,7 @@ ggplot(data=combined)+
         axis.title.y = element_text(vjust=1.02,hjust=1, face="bold", angle=0))
 
 
-ggsave(here("round3/Figure05.tiff"),height = 9, unit="in")  
+ggsave(here("round3/Figure05.svg"),height = 9, unit="in")  
 
 inner_join(hsp, ktya, by="Species")%>%
   select(Genus.x,log2.x,log2.y)
